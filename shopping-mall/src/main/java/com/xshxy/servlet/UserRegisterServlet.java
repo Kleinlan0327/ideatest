@@ -21,9 +21,7 @@ public class UserRegisterServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         Map<String, String[]> parameterMap = request.getParameterMap();
-        for (String s : parameterMap.keySet()) {
-            System.out.println(s+":"+ Arrays.toString(parameterMap.get(s)));
-        }
+
         response.sendRedirect(request.getContextPath()+"/user-login.jsp");
     }
 }
