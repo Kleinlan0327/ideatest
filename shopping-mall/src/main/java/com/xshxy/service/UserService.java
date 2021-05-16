@@ -12,5 +12,5 @@ public interface UserService {
     public List<User> selectAll();
     public User selectById();
     public User login(String username, String password);
-    public boolean insert(User user);
+    public boolean register(User user);
 }

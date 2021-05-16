@@ -14,6 +14,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     UserDao userDao = new UserDaoImpl();
+
     @Override
     public List<User> selectAll() {
         return userDao.selectAll();
@@ -25,13 +26,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean insert(User user) {
-        return false;
-    }
-
-    @Override
     public User login(String username, String password) {
         User user = userDao.selectByUsername(username);
         return user != null && password.equals(user.getPassword()) ? user : null;
+    }
+
+    @Override
+    public boolean register(User user) {
+        return userDao.insert(user);
     }
 }
